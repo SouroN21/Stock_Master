@@ -1,8 +1,11 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const bodyParser = require("body-parser");
 const cors = require("cors");
 const dotenv = require("dotenv");
+
+// User routes
+const userRoutes = require("./routes/userRoutes");
+const productRoutes = require("./routes/productRoutes");
 
 dotenv.config();
 
@@ -10,8 +13,14 @@ const app = express();
 const PORT = process.env.PORT || 8080;
 
 app.use(cors());
-app.use(bodyParser.json());
+app.use(express.json()); 
 
+// User routes
+app.use('/api/user', userRoutes);
+//Product routes
+app.use('/api/product',productRoutes)
+
+// MongoDB Connection
 const url = process.env.MONGODB_URL;
 
 mongoose.connect(url)
