@@ -4,6 +4,8 @@ import Sidebar from './components/Sidebar';
 import Header from './components/Header'; 
 import Login from './pages/login';
 import Dashboard from './pages/dashboard';
+import StoreRegister from './pages/storeRegister';
+
 function App() {
   return (
     <Router>
@@ -11,7 +13,11 @@ function App() {
         <Route path="/login" element={<Login />} />
       </Routes>
 
-      <div className="flex h-screen">
+      <Routes>
+        <Route path="/storeReg" element={<StoreRegister />} />
+      </Routes>
+
+      
           <Routes>
             <Route path="/" 
               element={
@@ -39,7 +45,7 @@ function App() {
                 }
             />
           </Routes>
-      </div>
+      
     </Router>
   );
 }
