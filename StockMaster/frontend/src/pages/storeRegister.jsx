@@ -26,7 +26,7 @@ const StoreRegister = () => {
 
         try {
             const response = await axios.post('http://localhost:5001/api/user/register', {
-                full_name: fullName,
+                first_name: fullName,
                 last_name: lastName,
                 email,
                 password,

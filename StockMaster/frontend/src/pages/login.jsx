@@ -45,6 +45,10 @@ const Login = () => {
                     animate={{ opacity: 1, y: 0 }} 
                     transition={{ duration: 0.5 }} 
                 >
+                    {/**
+                     * "email": "johfdn.dsdsaoe@example.com",
+    "password": "SecurePassword123!",
+                     */}
                     <h2 className="mb-6 text-3xl font-bold text-center text-gray-800">Login</h2>
                     {errorMessage && <p className="mb-4 text-center text-red-600">{errorMessage}</p>}
 
