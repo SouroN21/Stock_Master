@@ -35,35 +35,35 @@ const Sidebar = () => {
             </a>
             {/* Navigation Menu */}
            
-            <nav className="flex-grow p-4 bg-white shadow-inner rounded-e-lg ">
+            <nav className="flex-grow p-4 shadow-inner bg-gradient-to-r from-cyan-100 to-cyan-50 rounded-e-lg ">
                 <ul>
                     <li className='mt-10'>
-                        <a href="/" className="flex items-center p-2 text-xl transition duration-200 rounded-md hover:bg-cyan-50">
-                            <FaHouse className='ml-9'/>
+                        <a href="/" className="flex items-center p-2 text-xl transition duration-200 rounded-md bg-gradient-to-r hover:from-cyan-200 hover:to-cyan-300">
+                            <FaHouse className='text-gray-800 ml-9'/>
                             <span className="ml-4 ">Dashboard</span>
                         </a>
                     </li>
                     <li>
-                        <a href="/inventory" className="flex items-center p-2 text-xl transition duration-200 rounded-md hover:bg-cyan-50">
-                            <MdInventory2 className='ml-9'/>
+                        <a href="/inventory" className="flex items-center p-2 text-xl transition duration-200 rounded-md bg-gradient-to-r hover:from-cyan-200 hover:to-cyan-300">
+                            <MdInventory2 className='text-gray-800 ml-9'/>
                             <span className="ml-4">Inventory</span>
                         </a>
                     </li>
                     <li>
-                        <a href="/stores" className="flex items-center p-2 text-xl transition duration-200 rounded-md hover:bg-cyan-50">
-                            <IoStorefront className='ml-9'/>
+                        <a href="/stores" className="flex items-center p-2 text-xl transition duration-200 rounded-md bg-gradient-to-r hover:from-cyan-200 hover:to-cyan-300">
+                            <IoStorefront className='text-gray-800 ml-9'/>
                             <span className="ml-4">Stores</span>
                         </a>
                     </li>
                     <li>
-                        <a href="/orders" className="flex items-center p-2 text-xl transition duration-200 rounded-md hover:bg-cyan-50">
-                            <FaCartShopping className='ml-9'/>
+                        <a href="/orders" className="flex items-center p-2 text-xl transition duration-200 rounded-md bg-gradient-to-r hover:from-cyan-200 hover:to-cyan-300">
+                            <FaCartShopping className='text-gray-800 ml-9'/>
                             <span className="ml-4">Orders</span>
                         </a>
                     </li>
                     <li>
-                        <a href="/addProduct" className="flex items-center p-2 text-xl transition duration-200 rounded-md hover:bg-cyan-50">
-                            <MdAddToPhotos className='ml-9'/>
+                        <a href="/addProduct" className="flex items-center p-2 text-xl transition duration-200 rounded-md bg-gradient-to-r hover:from-cyan-200 hover:to-cyan-300">
+                            <MdAddToPhotos className='text-gray-800 ml-9'/>
                             <span className="ml-4">Add Product</span>
                         </a>
                     </li>
@@ -71,7 +71,7 @@ const Sidebar = () => {
             </nav>
 
             {/* Logout Section */}
-            <div className="flex items-center justify-center p-2 text-xl font-bold transition duration-200 rounded cursor-pointer text-cyan-500 hover:bg-cyan-50" onClick={handleLogout}>
+            <div className="flex items-center justify-center p-2 text-xl font-bold transition duration-200 rounded cursor-pointer text-cyan-600 hover:bg-cyan-50 hover:text-cyan-800" onClick={handleLogout}>
                 <CiLogout className="mr-2" />
                 <span>Log Out</span>
             </div>

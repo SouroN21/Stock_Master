@@ -49,7 +49,7 @@ const Header = () => {
 
     return (
         <>
-            <header className="flex items-center justify-end h-16 p-2 font-sans text-white shadow-md rounded-xl bg-cyan-500">
+            <header className="flex items-center justify-end h-16 p-2 font-sans text-white transition duration-300 ease-in-out transform rounded-md shadow-lg bg-gradient-to-r from-cyan-600 to-teal-400 hover:from-teal-400 hover:to-cyan-600 ">
                 <div className="w-0.5 bg-gray-600 h-10 mr-4"></div>
                 <div className="text-xl cursor-default">{currentTime}</div>
                 <div className="w-0.5 bg-gray-600 h-10 ml-4 mr-4"></div>
@@ -67,10 +67,8 @@ const Header = () => {
                     ) : (
                         <span className="mt-2">Loading...</span>
                     )}
-                </div>
-                
+                </div>     
             </header>
-
             {isModalOpen && userProfile && (
                 <UserModal userProfile={userProfile} onClose={handleCloseModal} />
             )}

@@ -1,6 +1,7 @@
 const Product = require("../models/product");
 const { uploadImageToCloudinary } = require('../Configer/cloudinaryConfig');
 
+//Add a product
 exports.addProduct = async (req, res) => {
     const { storeId, title, description, category, sku, price, stock, date } = req.body;
     const file = req.file;
@@ -33,6 +34,7 @@ exports.addProduct = async (req, res) => {
     }
 };
 
+//Get all Products
 exports.getProducts = async (req, res) => {
     try {
         const products = await Product.find();
@@ -43,6 +45,21 @@ exports.getProducts = async (req, res) => {
     }
 };
 
+//get product by User ID
+exports.getProductsByUId = async (req, res) => {
+    try {
+        const products=await Product.find({storeId:req.params.uid});
+        if (!products) {
+            return res.status(404).json({ message: "Product not found" });
+        }
+        res.json(products);
+    }catch(err){
+        console.error("Erro Fest Data");
+        res.status(500).json({message:"serverError"});
+    }
+}
+
+//Get product by Id
 exports.getProductByID = async (req, res) => {
     try {
         const product = await Product.findById(req.params.id);
@@ -56,6 +73,7 @@ exports.getProductByID = async (req, res) => {
     }
 };
 
+//update by id
 exports.updateProduct = async (req, res) => {
     try {
         const updatedProduct = await Product.findByIdAndUpdate(req.params.id, req.body, { new: true });
@@ -69,6 +87,7 @@ exports.updateProduct = async (req, res) => {
     }
 };
 
+//detele using product ID
 exports.deleteProduct = async (req, res) => {
     try {
         const deletedProduct = await Product.findByIdAndDelete(req.params.id);

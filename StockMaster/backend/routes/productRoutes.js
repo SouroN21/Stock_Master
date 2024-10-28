@@ -1,7 +1,7 @@
 // routes/productRoute.js
 const express = require('express');
 const multer = require('multer');
-const { addProduct, getProducts, getProductByID, updateProduct, deleteProduct } = require("../controller/productController");
+const { addProduct, getProducts, getProductByID,getProductsByUId, updateProduct, deleteProduct } = require("../controller/productController");
 
 const route = express.Router();
 
@@ -13,5 +13,6 @@ route.get('/', getProducts);
 route.get('/:id', getProductByID);
 route.put('/:id', updateProduct);
 route.delete('/:id', deleteProduct);
+route.get('/store/:uid',getProductsByUId);
 
 module.exports = route;

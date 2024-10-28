@@ -6,9 +6,12 @@ import Login from './pages/login';
 import Dashboard from './pages/dashboard';
 import StoreRegister from './pages/storeRegister';
 import AddProduct from './pages/addProduct';
+import Inventory from './pages/inventory';
+import { UserProvider } from './components/UserContext';
 
 function App() {
   return (
+    <UserProvider>
     <Router>
       <Routes>
         <Route path="/login" element={<Login />} />
@@ -28,6 +31,7 @@ function App() {
                   <Routes>
                     <Route path="/" element={<Dashboard />} />
                     <Route path="/addProduct" element={<AddProduct />} />
+                    <Route path='/inventory' element={<Inventory/>}/>
                     <Route path="/d" element={<div>Some other content here</div>} />
                   </Routes>
                 </div>
@@ -37,6 +41,7 @@ function App() {
         />
       </Routes>
     </Router>
+    </UserProvider>
   );
 }
 
