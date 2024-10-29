@@ -10,7 +10,7 @@ const productRoutes = require("./src/routes/productRoutes");
 dotenv.config();
 
 const app = express();
-const PORT =  8080;
+const PORT = 5001;
 
 app.use(cors());
 app.use(express.json()); 
