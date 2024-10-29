@@ -12,7 +12,7 @@ export const UserProvider = ({ children }) => {
         const fetchUserProfile = async () => {
             if (token) {
                 try {
-                    const response = await axios.get('http://localhost:5001/api/user/profile', {
+                    const response = await axios.get('http://localhost:8080/api/user/profile', {
                         headers: { Authorization: `Bearer ${token}` },
                     });
                     setUserProfile(response.data);

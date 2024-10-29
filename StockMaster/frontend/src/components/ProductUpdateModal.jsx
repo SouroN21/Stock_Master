@@ -20,7 +20,7 @@ const ProductUpdateModal = ({ product, isOpen, onClose, onUpdate }) => {
         e.preventDefault();
         
         try {
-            await axios.put(`http://localhost:5001/api/product/${product._id}`, updatedProduct);
+            await axios.put(`http://localhost:8080/api/product/${product._id}`, updatedProduct);
             onUpdate(); // Call the update function to refresh the products
             onClose();  // Close the modal after updating
         } catch (error) {
