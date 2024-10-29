@@ -30,14 +30,15 @@ const url = process.env.MONGODB_URL;
 mongoose.connect(url)
     .then(() => {
         console.log("MongoDB Connection Success!");
-           mongoose.connection.once("open", () => {
+        mongoose.connection.once("open", () => {
             console.log("MongoDB is ready!");
         });
     })
     .catch((error) => {
-        console.error("MongoDB Connection Error:", error);
+        console.error("MongoDB Connection Error:", error.message); // Log just the message
         process.exit(1); 
     });
+
 
 app.listen(PORT, () => {
     console.log(`Server is up and running on port ${PORT}`);
