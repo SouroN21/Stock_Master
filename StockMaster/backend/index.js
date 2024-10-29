@@ -27,7 +27,8 @@ app.get('/', (req, res) => {
   });
 
 // MongoDB Connection
-const url = process.env.MONGODB_URL;
+// const url = process.env.MONGODB_URL;
+const url = 'mongodb+srv://Naveen:Naveen%40123@cluster0.laqmq.mongodb.net/stockmaster?retryWrites=true&w=majority';
 
 mongoose.connect(url)
     .then(() => {
