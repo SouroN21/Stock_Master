@@ -20,6 +20,10 @@ app.use('/api/user', userRoutes);
 //Product routes
 app.use('/api/product',productRoutes)
 
+app.get('/', (req, res) => {
+    res.send('Hello');
+  });
+
 // MongoDB Connection
 const url = process.env.MONGODB_URL;
 
