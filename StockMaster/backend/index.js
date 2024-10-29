@@ -4,8 +4,8 @@ const cors = require("cors");
 const dotenv = require("dotenv");
 
 // User routes
-const userRoutes = require("./src/routes/userRoutes");
-const productRoutes = require("./src/routes/productRoutes");
+// const userRoutes = require("./src/routes/userRoutes");
+// const productRoutes = require("./src/routes/productRoutes");
 
 dotenv.config();
 
@@ -15,10 +15,10 @@ const PORT = process.env.PORT || 8080;
 app.use(cors());
 app.use(express.json()); 
 
-// User routes
-app.use('/api/user', userRoutes);
-//Product routes
-app.use('/api/product',productRoutes)
+// // User routes
+// app.use('/api/user', userRoutes);
+// //Product routes
+// app.use('/api/product',productRoutes)
 
 app.get('/', (req, res) => {
     res.send('Hello');
