@@ -10,27 +10,28 @@ const productRoutes = require("./src/routes/productRoutes");
 dotenv.config();
 
 const app = express();
-// const PORT = process.env.PORT || 8080;
-const PORT =  8080;
-
+const PORT = 8080; // Set your desired port
 
 app.use(cors());
 app.use(express.json()); 
 
 // User routes
 app.use('/api/user', userRoutes);
-//Product routes
-app.use('/api/product',productRoutes)
+// Product routes
+app.use('/api/product', productRoutes);
 
 app.get('/', (req, res) => {
     res.send('Hello');
-  });
+});
 
-// MongoDB Connection
-// const url = process.env.MONGODB_URL;
+// Hardcoded MongoDB Connection URL
 const url = 'mongodb+srv://Naveen:Naveen%40123@cluster0.laqmq.mongodb.net/stockmaster?retryWrites=true&w=majority';
 
-mongoose.connect(url)
+// MongoDB Connection
+mongoose.connect(url, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+})
     .then(() => {
         console.log("MongoDB Connection Success!");
         mongoose.connection.once("open", () => {
@@ -38,10 +39,9 @@ mongoose.connect(url)
         });
     })
     .catch((error) => {
-        console.error("MongoDB Connection Error:", error.message); // Log just the message
+        console.error("MongoDB Connection Error:", error.message);
         process.exit(1); 
     });
-
 
 app.listen(PORT, () => {
     console.log(`Server is up and running on port ${PORT}`);
