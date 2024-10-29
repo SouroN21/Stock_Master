@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import Image from "../components/Image";
 import { useNavigate } from 'react-router-dom'; 
 import axios from 'axios';
+import config from '../config/config';
 
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -15,7 +16,7 @@ const Login = () => {
         event.preventDefault();
 
         try {
-            const response = await axios.post('http://localhost:8080/api/user/login', {
+            const response = await axios.post(`${config.API_URL}/user/login`, {
                 email,
                 password
             });

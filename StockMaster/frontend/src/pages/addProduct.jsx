@@ -1,6 +1,7 @@
 import React, { useContext, useState,useEffect } from 'react';
 import { UserContext } from '../components/UserContext';
 import { toast } from 'react-toastify';
+import config from '../config/config';
 
 const AddProduct = () => {
     const [title, setTitle] = useState('');
@@ -50,7 +51,7 @@ const AddProduct = () => {
         }
 
         try {
-            const response = await fetch('http://localhost:8080/api/product/add', {
+            const response = await fetch(`${config.API_URL}/product/add`, {
                 method: 'POST',
                 body: formData,
             });

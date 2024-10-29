@@ -4,6 +4,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import UserModal from './UserModal';
 import { motion } from 'framer-motion';
+import config from '../config/config';
 
 const Header = () => {
     const [currentTime, setCurrentTime] = useState(new Date().toLocaleDateString());
@@ -26,7 +27,7 @@ const Header = () => {
         const fetchUserProfile = async () => {
             if (token) {
                 try {
-                    const response = await axios.get('http://localhost:8080/api/user/profile', {
+                    const response = await axios.get(`${config.API_URL}/user/profile`, {
                         headers: { Authorization: `Bearer ${token}` },
                     });
                     setUserProfile(response.data);

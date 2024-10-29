@@ -4,7 +4,7 @@ import ItemsCard from '../components/items-card';
 import ProductUpdateModal from "../components/ProductUpdateModal";
 import axios from "axios";
 import { motion } from "framer-motion";
-import { toast } from 'react-toastify';
+import config from '../config/config';
 
 const Inventory = () => {
     const { userProfile } = useContext(UserContext);
@@ -23,7 +23,7 @@ const Inventory = () => {
         if (storeId) {
             const fetchProducts = async () => {
                 try {
-                    const response = await axios.get(`http://localhost:8080/api/product/store/${storeId}`);
+                    const response = await axios.get(`${config.API_URL}/product/store/${storeId}`);
                     setProducts(response.data);
                 } catch (err) {
                     setError(err);
@@ -51,14 +51,14 @@ const Inventory = () => {
     };
 
     const handleUpdate = async () => {
-        const response = await axios.get(`http://localhost:8080/api/product/store/${storeId}`);
+        const response = await axios.get(`${config.API_URL}/product/store/${storeId}`);
         setProducts(response.data); 
         
     };
 
     const handleDelete = async (productId) => {
         try {
-            await axios.delete(`http://localhost:8080/api/product/${productId}`);
+            await axios.delete(`${config.API_URL}/product/${productId}`);
             setProducts(products.filter(product => product._id !== productId));
             alert("Product Deleted Sucsessfully");
         } catch (err) {

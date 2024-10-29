@@ -6,12 +6,13 @@ import { CiLogout } from "react-icons/ci";
 import { IoStorefront } from "react-icons/io5";
 import axios from 'axios';
 import { motion } from 'framer-motion';
+import config from '../config/config';
 
 const Sidebar = () => {
     const handleLogout = async () => {
         try {
             const token = localStorage.getItem('token');
-            await axios.post('http://localhost:8080/api/user/logout', {}, {
+            await axios.post(`${config.API_URL}/user/logout`, {}, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             localStorage.removeItem('token'); 

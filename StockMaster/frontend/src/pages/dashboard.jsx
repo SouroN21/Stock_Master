@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { FaBox, FaWarehouse, FaShoppingCart, FaDollarSign } from 'react-icons/fa';
+import config from '../config/config';
 
 const Dashboard = () => {
     const [token, setToken] = useState('');
@@ -13,7 +14,7 @@ const Dashboard = () => {
             setToken(token);
             if (token) {
                 try {
-                    const response = await axios.get('http://localhost:8080/api/user/profile', {
+                    const response = await axios.get(`${config.API_URL}/user/profile`, {
                         headers: { Authorization: `Bearer ${token}` },
                     });
                     setUserProfile(response.data);

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import config from '../config/config';
 
 const ProductUpdateModal = ({ product, isOpen, onClose, onUpdate }) => {
     const [updatedProduct, setUpdatedProduct] = useState({
@@ -20,9 +21,9 @@ const ProductUpdateModal = ({ product, isOpen, onClose, onUpdate }) => {
         e.preventDefault();
         
         try {
-            await axios.put(`http://localhost:8080/api/product/${product._id}`, updatedProduct);
-            onUpdate(); // Call the update function to refresh the products
-            onClose();  // Close the modal after updating
+            await axios.put(`${config.API_URL}/product/${product._id}`, updatedProduct);
+            onUpdate(); 
+            onClose();  
         } catch (error) {
             console.error("Error updating product:", error);
         }
