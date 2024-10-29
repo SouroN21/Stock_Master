@@ -4,8 +4,8 @@ const cors = require("cors");
 const dotenv = require("dotenv");
 
 // User routes
-const userRoutes = require("./routes/userRoutes");
-const productRoutes = require("./routes/productRoutes");
+const userRoutes = require("./src/routes/userRoutes");
+const productRoutes = require("./src/routes/productRoutes");
 
 dotenv.config();
 
