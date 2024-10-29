@@ -25,7 +25,7 @@ const StoreRegister = () => {
         }
 
         try {
-            const response = await axios.post('http://localhost:5001/api/user/register', {
+            const response = await axios.post('http://localhost:8080/api/user/register', {
                 first_name: fullName,
                 last_name: lastName,
                 email,

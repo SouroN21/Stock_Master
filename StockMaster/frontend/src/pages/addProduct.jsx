@@ -50,7 +50,7 @@ const AddProduct = () => {
         }
 
         try {
-            const response = await fetch('http://localhost:5001/api/product/add', {
+            const response = await fetch('http://localhost:8080/api/product/add', {
                 method: 'POST',
                 body: formData,
             });
