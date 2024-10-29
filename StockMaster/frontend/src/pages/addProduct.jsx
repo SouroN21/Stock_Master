@@ -1,5 +1,6 @@
 import React, { useContext, useState,useEffect } from 'react';
 import { UserContext } from '../components/UserContext';
+import { toast } from 'react-toastify';
 
 const AddProduct = () => {
     const [title, setTitle] = useState('');
@@ -65,6 +66,7 @@ const AddProduct = () => {
             setPrice('');
             setStock(0);
             setImageFile(null);
+            toast.apply("sussess");
         } catch (error) {
             console.error('Error adding product:', error);
             setErrorMessage('Failed to add product. Please try again.');

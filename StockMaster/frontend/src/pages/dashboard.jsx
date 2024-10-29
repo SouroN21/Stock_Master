@@ -1,8 +1,9 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import { motion } from 'framer-motion';
+import { FaBox, FaWarehouse, FaShoppingCart, FaDollarSign } from 'react-icons/fa';
 
 const Dashboard = () => {
-
     const [token, setToken] = useState('');
     const [userProfile, setUserProfile] = useState(null);
 
@@ -10,7 +11,6 @@ const Dashboard = () => {
         const fetchUserProfile = async () => {
             const token = localStorage.getItem('token');
             setToken(token);
-
             if (token) {
                 try {
                     const response = await axios.get('http://localhost:5001/api/user/profile', {
@@ -18,42 +18,90 @@ const Dashboard = () => {
                     });
                     setUserProfile(response.data);
                 } catch (error) {
-                  //  alert("Failed to fetch user profile!");
+                    console.error("Failed to fetch user profile!", error);
                 }
             }
         };
-
         fetchUserProfile();
     }, []);
 
-    
     return (
-    <div className=''>
-        <div className="p-10 bg-white">
-            <h2 className="mb-4 text-2xl font-bold">Dashboard</h2>
-            <p className="text-lg">Welcome to your dashboard!</p>
-          <p>
-            
-          </p>
-            <div className="mt-4">
-                <h3 className="text-xl font-semibold">Overview</h3>
-                <p>YourYour key metrics and insights will be displayed here.Your key metrics and insights will be displayed here.Your key metrics and insights will be displayed here.Your key metrics and insights will be displayed here.Your key metrics and insights will be displayed here.Your key metrics and insights will be displayed here.Your key metrics and insights will be displayed here. key metrics and insights will be displayed here.</p>
-                <div>
-                        <h4 className="text-lg font-semibold">User Profile:</h4>
-                        {userProfile ? (
-                <>
-                    <span>{userProfile.first_name}</span>
-                    <span>{userProfile.last_name}</span>
-                    <span>{userProfile.email}</span>
-                </>
-            ) : (
-                <p>Loading user profile...</p>
-            )}
-                    </div>
+        <div className="min-h-screen p-10 bg-gray-100">
+            <h2 className="mb-6 text-4xl font-bold text-center text-cyan-600">Dashboard</h2>
+            <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+                {/* Total Products Card */}
+                <motion.div
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="relative flex flex-col items-center p-6 text-white rounded-lg shadow-lg bg-cyan-600"
+                >
+                    <motion.div
+                        initial={{ opacity: 0, y: -10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5 }}
+                        className="text-4xl"
+                    >
+                        <FaBox />
+                    </motion.div>
+                    <h3 className="mt-2 text-xl font-semibold">Total Products</h3>
+                    <p className="text-2xl font-bold">100</p>
+                </motion.div>
+
+                {/* Out of Stock Card */}
+                <motion.div
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="relative flex flex-col items-center p-6 text-white bg-teal-500 rounded-lg shadow-lg"
+                >
+                    <motion.div
+                        initial={{ opacity: 0, y: -10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5 }}
+                        className="text-4xl"
+                    >
+                        <FaWarehouse />
+                    </motion.div>
+                    <h3 className="mt-2 text-xl font-semibold">Out of Stock</h3>
+                    <p className="text-2xl font-bold">5</p>
+                </motion.div>
+
+                {/* Sales Card */}
+                <motion.div
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="relative flex flex-col items-center p-6 text-white bg-purple-500 rounded-lg shadow-lg"
+                >
+                    <motion.div
+                        initial={{ opacity: 0, y: -10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5 }}
+                        className="text-4xl"
+                    >
+                        <FaDollarSign />
+                    </motion.div>
+                    <h3 className="mt-2 text-xl font-semibold">Total Sales</h3>
+                    <p className="text-2xl font-bold">$5000</p>
+                </motion.div>
+
+                {/* Orders Card */}
+                <motion.div
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="relative flex flex-col items-center p-6 text-white bg-blue-500 rounded-lg shadow-lg"
+                >
+                    <motion.div
+                        initial={{ opacity: 0, y: -10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5 }}
+                        className="text-4xl"
+                    >
+                        <FaShoppingCart />
+                    </motion.div>
+                    <h3 className="mt-2 text-xl font-semibold">Orders</h3>
+                    <p className="text-2xl font-bold">45</p>
+                </motion.div>
             </div>
         </div>
-    </div>
-        
     );
 };
 
