@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import Image from "../components/Image";
 import { useNavigate } from 'react-router-dom'; 
-import axios from 'axios';
+import axios from 'axios'; 
 import config from '../config/config';
 
 const Login = () => {

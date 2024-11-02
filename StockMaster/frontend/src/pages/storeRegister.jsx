@@ -3,6 +3,7 @@ import axios from "axios";
 import Image from "../components/Image";
 import { useNavigate } from 'react-router-dom'; 
 import { motion } from 'framer-motion';
+import config from '../config/config';
 
 const StoreRegister = () => {
     const [fullName, setFullName] = useState('');
@@ -25,7 +26,7 @@ const StoreRegister = () => {
         }
 
         try {
-            const response = await axios.post('http://localhost:8080/api/user/register', {
+            const response = await axios.post(`${config.API_URL}/user/register`, {
                 first_name: fullName,
                 last_name: lastName,
                 email,
